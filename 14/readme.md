@@ -26,3 +26,31 @@ def csv_read_by_dict():
         for row in reader:
             print(row)                    
 ```
+
+
+```python
+import csv
+def csv_writer():
+    header = ['id', 'name', 'age']
+    rows = [
+        (1, 'tom', 23)
+        (2, 'wu', 23)
+        (3, 'li', 23)
+    ]
+    with open('data.csv', 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(header)
+        writer.writerows(rows)
+        
+def csv_writer_dict():
+    header = ['id', 'name', 'age']
+    rows = [
+        {'id': 1, 'name': 'tom', 'age': 30}
+        {'id': 2, 'name': 'li', 'age': 30}
+        {'id': 3, 'name': 'wu', 'age': 30}
+    ]  
+    with open('data.csv', 'w', newline='') as f:
+        writer = csv.DictWriter(f, header)
+        writer.writeheader()
+        writer.writerows(rows)      
+```
